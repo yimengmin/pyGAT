@@ -25,6 +25,12 @@ class GraphAttentionLayer(nn.Module):
         self.leakyrelu = nn.LeakyReLU(self.alpha)
 
     def forward(self, input, adj):
+        '''
+        input size: N \times in_features
+        self.W size: in_features \times out_features
+        how can we use \phi?
+        1. embed phi in self feture??? h->cont(\psi(i))?
+        '''
         h = torch.mm(input, self.W) # h is the input feature after linear trans
         N = h.size()[0]
 
